@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Walker : AI<Agent> {
 	protected override void Setup() {
-		AddBehaviour(new RandomWalk());
+		AddBehaviour<RandomWalk>();
 	}
 
 	class RandomWalk : AIBehaviour<Agent> {

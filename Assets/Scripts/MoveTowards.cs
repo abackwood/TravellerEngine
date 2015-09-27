@@ -18,4 +18,8 @@ public class MoveTowards : Action<Agent> {
 	public MoveTowards(Vector3 direction) {
 		this.goal = direction;
 	}
+
+	public override string ToString () {
+		return string.Format ("MoveTowards " + goal);
+	}
 }
