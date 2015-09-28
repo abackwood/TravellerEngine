@@ -22,7 +22,6 @@ public class MapChunk3D : MonoBehaviour {
 		//Get references to relevant components & calculate relevant values
 		MeshFilter filter = GetComponent<MeshFilter>();
 		MeshCollider collider = GetComponent<MeshCollider>();
-		MeshRenderer renderer = GetComponent<MeshRenderer>();
 
 		int chunkSizeX = map.chunkSizeX;
 		int chunkSizeZ = map.chunkSizeZ;

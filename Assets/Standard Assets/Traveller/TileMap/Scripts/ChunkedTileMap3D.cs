@@ -25,6 +25,7 @@ public class ChunkedTileMap3D : MonoBehaviour {
 			chunk.transform.localRotation = Quaternion.identity;
 			chunk.transform.localScale = Vector3.one;
 			chunk.map = this;
+
 			chunk.BuildMesh(heightData);
             
 			chunks[new IntVector2(x,y)] = chunk;
@@ -39,4 +40,27 @@ public class ChunkedTileMap3D : MonoBehaviour {
 	void Awake() {
 		chunks = new Dictionary<IntVector2,MapChunk3D>();
 	}
+
+	void Update() {
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		foreach(MapChunk3D chunk in chunks.Values) {
+			RaycastHit hitInfo;
+			if(chunk.GetComponent<MeshCollider>().Raycast(ray,out hitInfo,1000)) {
+				Vector3 point = hitInfo.point;
+
+				OnMouseOver(point);
+				if(Input.GetMouseButtonDown(0)) {
+					OnMouseDown(point);
+				}
+				if(Input.GetMouseButtonUp(0)) {
+					OnMouseUp(point);
+				}
+				break;
+			}
+
+		}
+	}
+	protected virtual void OnMouseOver(Vector3 point) {}
+	protected virtual void OnMouseDown(Vector3 point) {}
+	protected virtual void OnMouseUp(Vector3 point) {}
 }
