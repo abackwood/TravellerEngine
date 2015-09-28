@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class MapTester : MonoBehaviour {
+public class MapTester3D : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ChunkedTileMap3D map = GetComponent<ChunkedTileMap3D>();
+		TileMap3D map = GetComponent<TileMap3D>();
 
 		for(int i = 0 ; i < 2 ; i++) {
 			for(int j = 0 ; j < 2 ; j++) {
@@ -21,7 +21,7 @@ public class MapTester : MonoBehaviour {
 				texture.Apply();
 
 				map.AddChunk(i,j,heightData);
-				map.Chunk (i,j).SetTexture(texture);
+				//map.Chunk (i,j).SetTexture(texture);
 			}
 		}
 	}

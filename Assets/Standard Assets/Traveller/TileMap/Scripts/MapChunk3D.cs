@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [RequireComponent (typeof (MeshCollider))]
 [RequireComponent (typeof (MeshRenderer))]
 public class MapChunk3D : MonoBehaviour {
-	public ChunkedTileMap3D map;
+	public TileMap3D map;
 
 	float[,] heightData;
 	public float GetHeight(int x, int z) {
